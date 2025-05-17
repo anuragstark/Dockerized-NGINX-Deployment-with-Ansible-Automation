@@ -1,0 +1,7 @@
+---
+# tasks file for docker
+# Master task file
+
+- include: install_docker.yml
+- include: run_container.yml
+

@@ -1,0 +1,10 @@
+---
+- name: Modify cron
+  hosts: all
+
+  tasks:
+  - name: Remove Cron Job
+    cron: 
+     name: Run Test Script
+     state: absent
+     user: centosgui

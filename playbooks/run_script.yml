@@ -1,0 +1,12 @@
+---
+
+- name: Run a Script
+  hosts: all
+  become: yes
+
+  tasks:
+  - name: Run Script
+    shell: /home/remote_task/basic.sh >> test.log
+    args: 
+     chdir: /home/remote_task/
+     creates: test.log

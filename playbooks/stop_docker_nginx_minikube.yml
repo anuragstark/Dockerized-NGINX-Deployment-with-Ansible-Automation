@@ -1,0 +1,24 @@
+---
+- name: Stop Docker, Nginx, and Minikube if running
+  hosts: all
+  become: true
+  tasks:
+
+    - name: Stop Docker service
+      service:
+        name: docker
+        state: stopped
+      ignore_errors: yes
+
+    - name: Stop Nginx service
+      service:
+        name: nginx
+        state: stopped
+      ignore_errors: yes
+
+    - name: Stop Minikube
+      shell: minikube stop
+      register: minikube_result
+      failed_when: false
+      changed_when: "'Done!' in minikube_result.stdout"
+

@@ -1,0 +1,13 @@
+---
+# tasks file for firewall_service
+
+- name: Enable HTTP service in firewalld
+  firewalld:
+    service: "{{ service }}"
+    state: enabled
+    permanent: true
+  become: true
+  when: ansible_os_family == "RedHat"
+  notify: Reload Firewall  # handler should match the handler name exactly
+
+

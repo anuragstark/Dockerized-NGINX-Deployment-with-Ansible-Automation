@@ -1,0 +1,19 @@
+---
+- name: firewalld adding port for nginx
+  hosts: all
+  become: true # for root permission 
+
+  tasks:
+    - name: Enabled a service in firewalldd
+      firewalld:
+        port: 80/tcp
+        permanent: true
+        state: enabled
+        immediate: true
+      notify:
+        - reload the firewalld
+  handlers:
+    - name: reload the firewalld
+      service:
+        name: firewalld
+        state: reloaded

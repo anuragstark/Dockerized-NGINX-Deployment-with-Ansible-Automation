@@ -1,0 +1,16 @@
+---
+- name: cron setup
+  hosts: all
+  become: yes ##for sudo or root action
+
+  tasks:
+  - name: Add cron job by ansible
+    cron:
+      name: Run Test Script
+      minute: 30
+      hour: 18
+      day: 15
+      month: "*"
+      weekday: "*"
+      user: centosgui
+      job: /home/remote_task/basic.sh

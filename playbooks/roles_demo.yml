@@ -1,0 +1,8 @@
+---
+- name: Install httpd and Firewall Changes
+  hosts: all
+  become: true
+  roles:
+    - httpd_setup
+    - firewall_service
+

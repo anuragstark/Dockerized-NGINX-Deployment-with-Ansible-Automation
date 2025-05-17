@@ -1,0 +1,20 @@
+---
+- name: Install and Start Nginx on CentOS
+  hosts: all
+  become: yes
+  vars:
+    - app: nginx #replace with app name like httpd
+  tasks:
+    - name: Task 1 - Install Nginx
+      yum:
+        name: "{{ app }}"
+        state: present
+      tags: i-install
+
+    - name: Task 2 - Start and Enable Nginx Service
+      service:
+        name: "{{ app }}"
+        state: started
+        enabled: yes
+      tags: s-start
+

@@ -1,0 +1,16 @@
+---
+- name: Delete user and group
+  hosts: all
+  become: true
+  tasks:
+    - name: Remove user 'anurag'
+      user:
+        name: anurag
+        state: absent
+        remove: yes   # This will also remove the user's home directory
+
+    - name: Delete group 'QA'
+      group:
+        name: QA
+        state: absent
+

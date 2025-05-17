@@ -1,0 +1,4 @@
+---
+# vars file for docker
+
+html_file_path: /var/www/html/index.html

@@ -1,0 +1,7 @@
+---
+- name: Docker container deployment
+  hosts: all
+  become: true
+  roles:
+    - docker
+

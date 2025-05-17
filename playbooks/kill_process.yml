@@ -1,0 +1,8 @@
+---
+- name: Kill Process on remote server
+  hosts: all
+  become: true
+  tasks:
+    - name: Find and kill Nginx process
+      shell: "pgrep nginx | xargs kill"
+      ignore_errors: yes

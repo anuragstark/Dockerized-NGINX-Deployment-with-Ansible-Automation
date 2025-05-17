@@ -1,0 +1,24 @@
+---
+# tasks file for httpd_setup
+
+- name: Install httpd
+  yum:
+    name: "{{ httpd_package_name }}"
+    state: present
+  become: true
+
+- name: Place custom HTML file
+  copy:
+    src: index.html  # Place this file in roles/httpd_setup/files/index.html
+    dest: "{{ html_file_path }}"  # e.g., /var/www/html/index.html
+  become: true
+
+- name: Start and enable httpd service
+  service:
+    name: "{{ httpd_package_name }}"
+    state: started
+    enabled: yes
+  become: true
+
+
+

@@ -1,0 +1,23 @@
+---
+- name: User Mgm
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Create group QA
+      group:
+        name: QA
+        state: present
+
+    - name: Create user with password
+      user:
+        name: anurag
+        password: "{{ 'Anurag@123' | password_hash('sha512') }}"
+        state: present
+
+    - name: Add user to QA group
+      user:
+        name: anurag
+        groups: QA
+        append: yes
+

@@ -1,0 +1,12 @@
+---
+- name: Copying files to remote
+  hosts: all
+  become: yes  # Optional: use if root privileges are needed
+
+  tasks:
+    - name: Copy file to remote hosts
+      copy:
+        src: /etc/ansible/playbooks/myfile.txt
+        dest: /tmp/
+        mode: 0777
+

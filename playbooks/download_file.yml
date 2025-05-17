@@ -1,0 +1,11 @@
+---
+- name: download file from internet on remote
+  hosts: all
+  become: True
+
+  tasks:
+    - name: Download python from official website zip file for all users
+      get_url:
+        url: https://www.python.org/ftp/python/3.12.7/Python-3.12.7.tgz
+        dest: /home/remote_task/
+        mode: 0777

@@ -1,0 +1,3 @@
+---
+# vars file for firewall_service
+service: http

@@ -1,0 +1,12 @@
+---
+- name: Print OS and IP
+  hosts: all
+  tasks:
+    - name: Show OS
+      debug:
+        msg: "{{ ansible_distribution }}"
+
+    - name: Show IP
+      debug:
+        msg: "{{ ansible_default_ipv4.address }}"
+
