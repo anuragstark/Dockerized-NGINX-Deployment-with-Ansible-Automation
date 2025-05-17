@@ -1,4 +1,4 @@
-# 🚀 Ansible Automation Project: Dockerized NGINX Deployment
+# 🚀 Ansible Automation : Dockerized NGINX Deployment
 
 This project is designed to **automate Docker and NGINX setup** using Ansible across multiple remote servers. It simplifies environment setup by installing Python3, pip, Docker SDK, and Docker itself, and then automatically deploys an NGINX container.
 
